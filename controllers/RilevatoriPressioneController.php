@@ -23,6 +23,12 @@ class RilevatoriPressioneController{
         $imp->createDemo();
         $rilevatore = $imp->getDispositivo("RilevatoreDiPressione",$id);
         $response->getBody()->write(json_encode($rilevatore));
+
+        if(!isset($rilevatore)){
+            return $response->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Page not found');
+        }
         
         return $response->withHeader("Content-Type","application/json");
     }
@@ -32,6 +38,11 @@ class RilevatoriPressioneController{
         $imp = new Impianto("Mohd & co.","5'12''9","12'216''123");
         $imp->createDemo();
         $rilevatore = $imp->getDispositivo("RilevatoreDiPressione",$id);
+        if(!isset($rilevatore)){
+            return $response->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Page not found');
+        }
         $misure = $rilevatore->getMisurazioni(null);
         $response->getBody()->write(json_encode($misure));
         
@@ -44,6 +55,11 @@ class RilevatoriPressioneController{
         $imp = new Impianto("Mohd & co.","5'12''9","12'216''123");
         $imp->createDemo();
         $rilevatore = $imp->getDispositivo("RilevatoreDiPressione",$id);
+        if(!isset($rilevatore)){
+            return $response->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Page not found');
+        }
         $misure = $rilevatore->getMisurazioni($value);
         $response->getBody()->write(json_encode($misure));
         

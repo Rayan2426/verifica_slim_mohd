@@ -15,13 +15,6 @@ class ImpiantoController{
         
         return $response->withHeader("Content-Type","application/json");
     }
-    public function show(Request $request, Response $response, $args){
-        $cf = $args["cf"];
-        $classe = new Classe("5dia");
-        $response->getBody()->write(json_encode($classe->getAlunno($cf)));
-        //$response->withHeader("Content-Type","application/json");
-        return $response->withHeader("Content-Type","application/json");
-    }
 }
 
 ?>

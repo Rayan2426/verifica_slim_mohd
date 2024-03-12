@@ -22,6 +22,11 @@ class RilevatoriUmiditaController{
         $imp = new Impianto("Mohd & co.","5'12''9","12'216''123");
         $imp->createDemo();
         $rilevatore = $imp->getDispositivo("RilevatoreDiUmidita",$id);
+        if(!isset($rilevatore)){
+            return $response->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Page not found');
+        }
         $response->getBody()->write(json_encode($rilevatore));
         
         return $response->withHeader("Content-Type","application/json");
@@ -32,6 +37,11 @@ class RilevatoriUmiditaController{
         $imp = new Impianto("Mohd & co.","5'12''9","12'216''123");
         $imp->createDemo();
         $rilevatore = $imp->getDispositivo("RilevatoreDiUmidita",$id);
+        if(!isset($rilevatore)){
+            return $response->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Page not found');
+        }
         $misure = $rilevatore->getMisurazioni(null);
         $response->getBody()->write(json_encode($misure));
         
@@ -44,6 +54,11 @@ class RilevatoriUmiditaController{
         $imp = new Impianto("Mohd & co.","5'12''9","12'216''123");
         $imp->createDemo();
         $rilevatore = $imp->getDispositivo("RilevatoreDiUmidita",$id);
+        if(!isset($rilevatore)){
+            return $response->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Page not found');
+        }
         $misure = $rilevatore->getMisurazioni($value);
         $response->getBody()->write(json_encode($misure));
         

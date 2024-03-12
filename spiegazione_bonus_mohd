@@ -1,0 +1,9 @@
+il file .gitignore serve a escludere alcune cartelle o file dal comando git add
+
+il file .htaccess serve gestire l'accesso ai file e percorsi nel database in cui si trova la repository del progetto slim, in questo caso specifico il file è utilizzate per negare l'accesso diretto ai file tramite il loro nome del file e a reindirizzare percorsi "strani" ad index.php
+
+il file composer.json contiene tutte le dipendenze necessarie al progetto, indicate dall'utente/programmatore
+
+il file composer.lock è generato automaticamente da docker e contiente il collegamento diretto alle dipendenze specificate dal programmatore e anche alle dipendenze nelle dipendenze
+
+l'index.php serve a reindirizzare ai controller giusti le richieste http in base all'url tramite AppFactory e alla funzione get

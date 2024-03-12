@@ -22,6 +22,11 @@ class DispositiviAllarmeController{
         $imp = new Impianto("Mohd & co.","5'12''9","12'216''123");
         $imp->createDemo();
         $dispositivoallarme = $imp->getDispositivo("DispositivoDiAllarme",$id);
+        if(!isset($dispositiviallarme)){
+            return $response->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Page not found');
+        }
         $response->getBody()->write(json_encode($dispositivoallarme));
         
         return $response->withHeader("Content-Type","application/json");
